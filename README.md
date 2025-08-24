@@ -57,7 +57,7 @@ This implementation sorts 100 integers under **900** operations, and 500 integer
 
 ## 🚀 Usage
 
-- ▶️ ⚡ Compile and execute:
+- Compile and execute:
 	1. `make`
 	2. `./push_swap <list_of_integers>`
 - Example: `./push_swap 9 0 -217 2147483647 -2147483648`
