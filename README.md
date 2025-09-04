@@ -37,6 +37,32 @@ This implementation sorts 100 integers under **900** operations, and 500 integer
 
 ## 📁 Project Structure
 
+```
+ft_push_swap
+├─ Makefile
+├─ README.md
+├─ checker_linux
+├─ includes
+│  └─ push_swap.h
+├─ libft
+├─ push_swap
+└─ srcs
+   ├─ error.c
+   ├─ init.c
+   ├─ instruct-push.c
+   ├─ instruct-revrotate.c
+   ├─ instruct-rotate.c
+   ├─ instruct-swap.c
+   ├─ log.c
+   ├─ main.c
+   ├─ sort-big-utils.c
+   ├─ sort-big.c
+   ├─ sort-small.c
+   ├─ stack-read.c
+   ├─ stack-write.c
+   └─ validate-input.c
+```
+
 ## 🚀 Usage
 
 ### Compile and execute
@@ -62,4 +88,5 @@ ARG="0 6 2 1 4 2"; ./push_swap $ARG | ./checker_linux $ARG
 - `OK` - Stack is sorted
 - `KO` - Stack is not sorted
 - `Error` - Input error (e.g. `push_swap` is printing something other than the instructions)
+
 
