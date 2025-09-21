@@ -52,31 +52,19 @@ ft_push_swap
    ├─ LIS.c
    ├─ LIS_helper.c
    ├─ create.c
-   ├─ error.c
    ├─ free.c
-   ├─ init.c
-   ├─ instruct-push.c
-   ├─ instruct-revrotate.c
-   ├─ instruct-rotate.c
-   ├─ instruct-swap.c
    ├─ instruct_comb.c
    ├─ instruct_single.c
    ├─ log.c
    ├─ main.c
    ├─ normalize.c
    ├─ preprocess.c
-   ├─ sort-big-utils.c
-   ├─ sort-big.c
-   ├─ sort-small.c
    ├─ sort_big.c
    ├─ sort_big_helper.c
    ├─ sort_small.c
-   ├─ stack-read.c
-   ├─ stack-write.c
    ├─ stack_ops_extra.c
    ├─ stack_ops_std.c
    ├─ utils.c
-   ├─ validate-input.c
    └─ validate.c
 ```
 
@@ -105,6 +93,7 @@ ARG="0 6 2 1 4 2"; ./push_swap $ARG | ./checker_linux $ARG
 - `OK` - Stack is sorted
 - `KO` - Stack is not sorted
 - `Error` - Input error (e.g. `push_swap` is printing something other than the instructions, non-numerical inputs)
+
 
 
 
