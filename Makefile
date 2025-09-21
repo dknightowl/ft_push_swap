@@ -5,55 +5,56 @@
 #                                                     +:+ +:+         +:+      #
 #    By: dkhoo <dkhoo@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/08/05 08:59:33 by dkhoo             #+#    #+#              #
-#    Updated: 2025/08/24 09:40:44 by dkhoo            ###   ########.fr        #
+#    Created: 2025/09/14 14:43:36 by dkhoo             #+#    #+#              #
+#    Updated: 2025/09/21 16:05:19 by dkhoo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
 CC = cc
-CCFLAGS = -Wall -Wextra -Werror
-DEBUG = -g -O0
-MATH = -lm
+DEBUG_FLAGS = -g
+CCFLAGS = -Wall -Wextra -Werror $(DEBUG_FLAGS)
 
-# libft
 LIBFT_DIR = libft
 LIBFT = -L$(LIBFT_DIR) -lft
 LIBFT_INCLUDE_DIR = $(LIBFT_DIR)/includes
 LIBFT_HEADER = $(LIBFT_INCLUDE_DIR)/libft.h $(LIBFT_INCLUDE_DIR)/ft_printf.h $(LIBFT_INCLUDE_DIR)/get_next_line_bonus.h $(LIBFT_INCLUDE_DIR)/extra.h
 LIBFT_LIB = $(LIBFT_DIR)/libft.a
 
-# push_swap
 PS_INCLUDE_DIR = includes
 PS_HEADER = $(PS_INCLUDE_DIR)/push_swap.h
 INCLUDES = -I$(PS_INCLUDE_DIR) -I$(LIBFT_INCLUDE_DIR)
 
 SRCS_DIR = srcs
-SRC_FILES = error.c\
-			init.c\
-			instruct-push.c\
-			instruct-revrotate.c\
-			instruct-rotate.c\
-			instruct-swap.c\
+SRC_FILES = CBI_helper.c\
+			CBI.c\
+			create.c\
+			free.c\
+			instruct_comb.c\
+			instruct_single.c\
+			LIS_helper.c\
+			LIS.c\
 			log.c\
 			main.c\
-			sort-big-utils.c\
-			sort-big.c\
-			sort-small.c\
-			stack-read.c\
-			stack-write.c\
-			validate-input.c
+			normalize.c\
+			preprocess.c\
+			sort_big_helper.c\
+			sort_big.c\
+			sort_small.c\
+			stack_ops_extra.c\
+			stack_ops_std.c\
+			utils.c\
+			validate.c
 SRCS = $(addprefix $(SRCS_DIR)/, $(SRC_FILES))
 OBJS = $(SRCS:.c=.o)
 
-debug: $(OBJS) $(LIBFT_LIB)
-	$(CC) $(CCFLAGS) $(DEBUG) $(OBJS) $(LIBFT) $(MATH) -o $(NAME)
+all: $(NAME)
 
-all: $(OBJS) $(LIBFT_LIB)
+$(NAME): $(OBJS) $(LIBFT_LIB)
 	$(CC) $(CCFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
-$(SRCS_DIR)/%.o: $(SRCS_DIR)/%.c $(LIBFT_HEADER) $(PS_HEADER)
+%.o: %.c $(LIBFT_HEADER) $(PS_HEADER)
 	$(CC) $(CCFLAGS) $(INCLUDES) -c $< -o $@
 
 $(LIBFT_LIB):

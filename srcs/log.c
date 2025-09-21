@@ -5,48 +5,56 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dkhoo <dkhoo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/05 16:46:39 by dkhoo             #+#    #+#             */
-/*   Updated: 2025/08/24 16:14:45 by dkhoo            ###   ########.fr       */
+/*   Created: 2025/09/14 16:15:47 by dkhoo             #+#    #+#             */
+/*   Updated: 2025/09/21 16:26:59 by dkhoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* LOGGING FUNCTIONS FOR DEVELOPMENT PURPOSES */
-
-void	log_stack(t_stack *stack, char *stack_id)
+void	print_args(char *psargv[])
 {
-	if (!stack)
-	{
-		ft_printf("Stack pointer is NULL\n");
-		return ;
-	}
-	ft_printf("Stack %s:\n", stack_id);
-	ft_printf("  Capacity: %d\n", stack->capacity);
-	ft_printf("  Top Index: %d\n", stack->top_idx);
-	if (!stack->array)
-	{
-		ft_printf("  Array pointer is NULL\n");
-		return ;
-	}
-	if (stack->top_idx == -1)
-	{
-		ft_printf("  (empty)\n");
-		return ;
-	}
-	log_arr(stack->array, stack->top_idx + 1, "  Elements (top to bottom)");
-}
+	int	i;
 
-void	log_arr(int *arr, size_t size, char *tag)
-{
-	int	idx;
-
-	idx = (int) size - 1;
-	ft_printf("%s\n", tag);
-	while (idx >= 0)
+	i = 0;
+	ft_printf("psargv: ");
+	while (psargv[i] != NULL)
 	{
-		ft_printf("    [%03d]: %d\n", idx, arr[idx]);
-		idx--;
+		ft_printf("(%s) ", psargv[i]);
+		i++;
 	}
 	ft_printf("\n");
+}
+
+void	print_stack(t_stack *stack)
+{
+	t_node	*node;
+
+	if (!stack)
+	{
+		ft_printf("(null stack)\n");
+		return ;
+	}
+	node = stack->top;
+	while (node)
+	{
+		ft_printf("{ value: %u, inorder: %u } \n", node->value, node->inorder);
+		node = node->next;
+	}
+	ft_printf("\n");
+}
+
+void	print_cbi_ctx(t_cbi_ctx *cbi)
+{
+	ft_printf("\n");
+	if (!cbi)
+	{
+		ft_printf("(null cbi)\n");
+		return ;
+	}
+	ft_printf("CBI: ");
+	ft_printf("{insert_val: %u, ", cbi->insert_val);
+	ft_printf("tgt_val: %u, ", cbi->tgt_val);
+	ft_printf("is_rotb_forward: %d, ", cbi->is_rotb_forward);
+	ft_printf("is_rota_forward: %d }\n", cbi->is_rota_forward);
 }

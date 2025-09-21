@@ -1,25 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   extra.h                                            :+:      :+:    :+:   */
+/*   instruct_comb.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dkhoo <dkhoo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/11 11:51:09 by dkhoo             #+#    #+#             */
-/*   Updated: 2025/09/01 23:11:17 by dkhoo            ###   ########.fr       */
+/*   Created: 2025/09/21 15:54:31 by dkhoo             #+#    #+#             */
+/*   Updated: 2025/09/21 15:56:25 by dkhoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EXTRA_H
-# define EXTRA_H
+#include "push_swap.h"
 
-# include "libft.h"
+// PUSH_SWAP INSTRUCTION SET FOR BOTH STACK
 
-long	ft_strtol(const char *str, char **endptr, int base);
-int		ft_isupper(int c);
-int		ft_islower(int c);
-void	ft_free2d(void **arr);
-int		ft_isspace(int c);
-int		ft_idx_of_char(const char *s, char c);
+void	instruct_ss(t_stack *stack1, t_stack *stack2)
+{
+	swap(stack1);
+	swap(stack2);
+	ft_printf("ss\n");
+}
 
-#endif
+void	instruct_rr(t_stack *stack1, t_stack *stack2)
+{
+	rotate(stack1);
+	rotate(stack2);
+	ft_printf("rr\n");
+}
+
+void	instruct_rrr(t_stack *stack1, t_stack *stack2)
+{
+	reverse_rotate(stack1);
+	reverse_rotate(stack2);
+	ft_printf("rrr\n");
+}

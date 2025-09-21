@@ -1,37 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free2d.c                                        :+:      :+:    :+:   */
+/*   ft_idx_of_char.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dkhoo <dkhoo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/30 17:14:25 by dkhoo             #+#    #+#             */
-/*   Updated: 2025/09/02 16:23:10 by dkhoo            ###   ########.fr       */
+/*   Created: 2025/09/01 21:45:17 by dkhoo             #+#    #+#             */
+/*   Updated: 2025/09/01 23:12:55 by dkhoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "extra.h"
-
 /**
-	@brief Frees a NULL-terminated dynamically-allocated 2D array.
+	@brief Finds the index of the first occurrence of a character in a
+	given null-terminated string
 
-	Iterates through a NULL-termianted array of pointers, frees each allocated
-	element, then frees the array itself
+	@param s String to search in
+	@param c Character to find the index of in the string
 
-	@param arr NULL-terminated array of allocated pointers. If NULL is passed,
-	nothing is done
+	@return The index of the first occurrence of the character, or
+	-1 if it is not found
 */
-void	ft_free2d(void **arr)
+int	ft_idx_of_char(const char *s, char c)
 {
-	void	**tmp;
+	int	idx;
 
-	if (!arr)
-		return ;
-	tmp = arr;
-	while (*tmp)
+	idx = 0;
+	while (s[idx] != '\0')
 	{
-		free(*tmp);
-		tmp++;
+		if (s[idx] == c)
+			return (idx);
+		idx++;
 	}
-	free(arr);
+	return (-1);
 }

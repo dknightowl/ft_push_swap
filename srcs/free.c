@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   extra.h                                            :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dkhoo <dkhoo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/11 11:51:09 by dkhoo             #+#    #+#             */
-/*   Updated: 2025/09/01 23:11:17 by dkhoo            ###   ########.fr       */
+/*   Created: 2025/09/14 17:27:18 by dkhoo             #+#    #+#             */
+/*   Updated: 2025/09/21 14:32:02 by dkhoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EXTRA_H
-# define EXTRA_H
+#include "push_swap.h"
 
-# include "libft.h"
+void	free_stack(t_stack *stack)
+{
+	t_node	*curr;
+	t_node	*nxt;
 
-long	ft_strtol(const char *str, char **endptr, int base);
-int		ft_isupper(int c);
-int		ft_islower(int c);
-void	ft_free2d(void **arr);
-int		ft_isspace(int c);
-int		ft_idx_of_char(const char *s, char c);
+	curr = stack->top;
+	while (curr)
+	{
+		nxt = curr->next;
+		free(curr);
+		curr = nxt;
+	}
+	free(stack);
+}
 
-#endif
+void	free_lis_helpers(int *lengths, int *predecessors, unsigned int *lis)
+{
+	free(lengths);
+	free(predecessors);
+	free(lis);
+}

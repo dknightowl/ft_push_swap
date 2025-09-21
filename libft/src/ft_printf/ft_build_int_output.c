@@ -6,7 +6,7 @@
 /*   By: dkhoo <dkhoo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 23:04:49 by dkhoo             #+#    #+#             */
-/*   Updated: 2025/06/28 15:42:58 by dkhoo            ###   ########.fr       */
+/*   Updated: 2025/09/18 00:54:11 by dkhoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,7 +147,7 @@ static char	*ft_apply_width(t_fmt *fmt, char *s, int is_negative)
 	is true while the provided arg is signed, arg will be
 	converted to an unsigned value.
 
-	@param fmt Format struct containing details for formatting
+	@param fmt Format struct containing debottoms for formatting
 	@param arg Signed or unsigned integer to be formatted in the output
 	@param sign SIGNED or UNSIGNED flag to determine whether to handle
 	arg as a signed or unsigned integer.
