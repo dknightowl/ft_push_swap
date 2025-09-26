@@ -6,7 +6,7 @@
 /*   By: dkhoo <dkhoo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/14 14:54:28 by dkhoo             #+#    #+#             */
-/*   Updated: 2025/09/21 16:14:11 by dkhoo            ###   ########.fr       */
+/*   Updated: 2025/09/26 09:16:23 by dkhoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,10 @@ static void	validate_dups(char *psargv[])
 			len_inner = ft_strlen(psargv[i_inner]);
 			if (ft_strncmp(psargv[i_outer], psargv[i_inner], len_outer) == 0
 				&& ft_strncmp(psargv[i_outer], psargv[i_inner], len_inner) == 0)
+			{
+				ft_free2d((void **) psargv);
 				exit_err();
+			}
 			i_inner++;
 		}
 		i_outer++;
@@ -57,9 +60,15 @@ static void	validate_ints(char *psargv[])
 		endptr = NULL;
 		check_value = ft_strtol(psargv[idx], &endptr, 10);
 		if (psargv[idx] == endptr || *endptr != '\0')
+		{
+			ft_free2d((void **) psargv);
 			exit_err();
+		}
 		if (check_value > INT_MAX || check_value < INT_MIN)
+		{
+			ft_free2d((void **) psargv);
 			exit_err();
+		}
 		idx++;
 	}
 }
